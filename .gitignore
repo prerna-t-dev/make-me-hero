@@ -1,0 +1,15 @@
+# Ignore ThemeKit configuration file
+config.yml
+
+# Ignore Shopify settings data (to prevent overwriting store settings)
+config/settings_data.json
+
+# Ignore Node.js dependencies (if using)
+node_modules/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore temporary files
+*.log
+*.tmp
