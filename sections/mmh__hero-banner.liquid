@@ -1,0 +1,87 @@
+<style>
+    #mmh--hero-banner .section-wrapper{
+        padding: 40px 30px;
+        background-image: url({{ section.settings.bg_img_mob |  img_url: 'master' }});
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        min-height: 100vh
+    }
+
+    @media screen and (min-width: 750px) {
+        #mmh--hero-banner .section-wrapper{
+            padding: 146px 60px;
+            background-image: url({{ section.settings.bg_img_desk |  img_url: 'master' }});
+            background-position: bottom right;
+            min-height: 70vh
+        }
+    }
+
+</style>
+
+
+<section id="mmh--hero-banner" style="background-color: {{ section.settings.background }};">
+    <div class="section-wrapper text-white">
+        <h2 class="font-chubbo-medium text-[36px] text-white mb-4">
+            {{ section.settings.header |  newline_to_br }}
+        </h2>
+        <div class="font-chillax-medium text-lg text-[#D1CCFF] mb-4">
+            {{ section.settings.subheader |  newline_to_br  }}
+        </div>
+        <a href="{{ section.settings.url }}" class="btn btn-primary w-fit">
+            {{ section.settings.cta }}
+        </a>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Homepage - Hero Banner",
+        "settings": [
+            {
+                "type": "color_background",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "image_picker",
+                "id": "bg_img_desk",
+                "label": "Desktop - Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "bg_img_mob",
+                "label": "Mobile - Image"
+            },
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header",
+                "default": "Turn your little one <br /> into the hero of their own story."
+            },
+            {
+                "type": "textarea",
+                "id": "subheader",
+                "label": "Subeader",
+                "default": "Personalised books and gifts that spark imagination, build confidence, and create lasting memories."
+            },
+            {
+                "type": "text",
+                "id": "cta",
+                "label": "CTA",
+                "default": "Shop Now"
+            },
+            {
+                "type": "url",
+                "id": "url",
+                "label": "URL"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Homepage - Hero Banner"
+            }
+            
+        ]
+    }
+{% endschema %}
