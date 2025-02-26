@@ -1,6 +1,23 @@
 <section id="mmh--age-category" style="background-color: {{ section.settings.background }};">
-
-
+    <div class="section-wrapper py-[100px] px-[60px]">    
+        <h3 class="text-center font-chubbo-medium text-[36px] mb-12">
+            {{ section.settings.header }}
+        </h3>  
+        <div class="custom--grid grid-cols-3 gap-6">
+            {% for block in section.blocks %}
+                <div class="rounded-[14px] px-4 py-12" style="background-image: url({{ block.settings.image |  img_url: 'master' }}); background-size: 100%; background-repeat: no-repeat;">
+                    <div class="max-w-2/3 text-black">
+                        <h4 class="font-chillax-medium text-[18px] mb-3">
+                            {{ block.settings.title }}
+                        </h4>
+                        <p class="font-playwrite-regular italic text-[25px]">
+                            {{ block.settings.age_range }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>  
 </section>
 
 
@@ -30,6 +47,16 @@
                     "type": "image_picker",
                     "id": "image",
                     "label": "Category Image"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "age_range",
+                    "label": "Age Range"
                 }
             ]
         }
