@@ -57,6 +57,13 @@
     font-size: 14px;
 }
 
+.btn-secondary{
+    background-color: #1E953D;
+    color: #FFFFFF;
+    font-family: 'Chillax-Medium', sans-serif;
+    font-size: 14px;
+}
+
 .text-white{
     color: #FFFFFF;
 }

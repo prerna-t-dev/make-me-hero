@@ -1,0 +1,90 @@
+<section id="mmh--about-usp" style="background-color: {{ section.settings.background }};">
+    <div class="section-wrapper pt-[52px] pb-[112px] px-[84px]">  
+        <div class="flex pr-[10vw] relative gap-[94px]">
+            <div>
+                {% comment %} Subtext {% endcomment %}
+                <p class="font-chillax-medium text-[18px] uppercase mb-4 relative z-[2]">
+                    {{ section.settings.subheader }}
+                    <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[-1]">
+                        <img src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/Vector.svg?v=1740594600" alt="heart vector">
+
+                    </span>
+                </p>
+                <h3 class="font-chubbo-medium text-[48px] leading-[1.1] mb-4">
+                    {{ section.settings.header }}
+                </h3>
+
+                <a href="{{ section.settings.url }}" class="btn btn-secondary w-fit">
+                    {{ section.settings.cta }}
+                </a>
+
+            </div>
+            <div class="custom--grid grid-cols-3 gap-[52px]">
+
+            </div>
+        </div>  
+    </div>
+</section>
+
+
+
+
+{% schema %}
+    {
+        "name": "Home - About USP",
+        "settings": [
+            {
+                "type": "color_background",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header",
+                "default": "Why we do <br /> what we do"
+            },
+            {
+                "type": "textarea",
+                "id": "subheader",
+                "label": "SubHeader",
+                "default": "Where every child's the star"
+            },
+            {
+                "type": "text",
+                "id": "cta",
+                "label": "Button - Text",
+                "default": "about us"
+            },
+            {
+                "type": "url",
+                "id": "url",
+                "label": "Button - URL"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "usp",
+                "type": "usp",
+                "limit": 5,
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Graphic Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Home - About USP"
+            }
+        ]
+    }
+    {% endschema %}
