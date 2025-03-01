@@ -1,0 +1,75 @@
+<section id="mmh--story-of-the-month" style="background-color: {{ section.settings.background }};">
+    <div class="section-wrapper py-[40px] px-[60px] flex gap-[72px] items-center">  
+        <div class="flex-shrink-0 w-[40%]">
+            <img src="{{ section.settings.image |  img_url: 'master' }}" alt="How it works">
+        </div>
+        <div class="w-[60%]">
+            <h2 class="font-chubbo-medium text-[48px] mb-[48px]">
+                {{ section.settings.header }}
+            </h2>
+
+            <ul>
+                {% for block in section.blocks %}
+                    <li class="w-4/5 {% unless forloop.last %} mb-10 {% endunless %} {% if forloop.index == 2 %}ml-[20%]{% endif %}">
+                        <h3 class="font-playwrite-regular italic text-[25px] mb-5">
+                            {{ block.settings.title }}
+                        </h3>
+                        <p class="font-chillax-medium text-[18px] mr-10">
+                            {{ block.settings.text }}
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+{% schema %}
+    {
+        "name": "Home - How It Works",
+        "settings": [
+            {
+                "type": "color_background",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header",
+                "default": "How it works?"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"            
+            }
+        ],
+        "blocks": [
+            {
+                "name": "steps",
+                "type": "steps",
+                "limit": 3,
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "text",
+                        "id": "text",
+                        "label": "Text"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Home - How It Works"
+            }
+        ]
+    }
+{% endschema %}
