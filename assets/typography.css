@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Chillax-Medium';
+    src: url('Chillax-Medium.woff2') format('woff2'),
+         url('Chillax-Medium.woff') format('woff'),
+         url('Chillax-Medium.otf') format('opentype'),
+         url('Chillax-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chubbo-Medium';
+    src: url('Chubbo-Medium.woff2') format('woff2'),
+         url('Chubbo-Medium.woff') format('woff'),
+         url('Chubbo-Medium.otf') format('opentype'),
+         url('Chubbo-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PlaywriteAUTAS-Regular';
+    src: url('PlaywriteAUTAS-Regular.woff2') format('woff2'),
+         url('PlaywriteAUTAS-Regular.woff') format('woff'),
+         url('PlaywriteAUTAS-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}

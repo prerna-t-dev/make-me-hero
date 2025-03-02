@@ -1,0 +1,57 @@
+/* assets/tailwind.css */
+
+/* Import Tailwind core styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*======= Custom Styles -- MAKE ME HERO ========*/
+
+
+/* Custom Components */
+@layer components {
+    .btn {
+        padding: 10px 20px;
+        border-radius: 7px;
+        display: block;
+        text-transform: uppercase;
+    }
+
+    .btn-primary {
+        background-color: theme('colors.primary');
+        color: black;
+        font-family: theme('fontFamily.chillax-medium');
+        font-size: 14px;
+    }
+
+    .btn-secondary {
+        background-color: theme('colors.secondary');
+        color: #FFFFFF;
+        font-family: theme('fontFamily.chillax-medium');
+        font-size: 14px;
+    }
+}
+
+/* Custom Utilities */
+@layer utilities {
+    .custom--grid {
+        display: grid !important;
+    }
+
+    .text-white {
+        color: #FFFFFF;
+    }
+
+    .text-green {
+        color: theme('colors.secondary');
+    }
+
+    header span, 
+    header-menu span,
+    header a, 
+    header-menu a {
+        font-family: theme('fontFamily.chillax-medium') !important;
+        font-size: 14px;
+    }
+}
+ 

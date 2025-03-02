@@ -1,15 +1,26 @@
 # Ignore ThemeKit configuration file
 config.yml
 
-# Ignore Shopify settings data (to prevent overwriting store settings)
+# Ignore Shopify settings data (prevents overwriting store settings)
 config/settings_data.json
 
-# Ignore Node.js dependencies (if using)
+# Ignore Node.js dependencies
 node_modules/
 
 # Ignore macOS system files
 .DS_Store
 
-# Ignore temporary files
+# Ignore temporary and log files
 *.log
 *.tmp
+
+# Ignore Tailwind output (if using Tailwind CSS)
+assets/tailwind.min.css
+
+# Ignore build artifacts (if using Webpack, Vite, or Parcel)
+dist/
+build/
+
+# Ignore NPM/Yarn lock files (optional, if you don’t want to commit them)
+package-lock.json
+yarn.lock
