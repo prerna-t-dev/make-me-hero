@@ -1,0 +1,42 @@
+<footer id="mmh--footer" style="background-color: {{ section.settings.background }};">
+    <div class="section-wrapper py-[60px] px-[60px]"> 
+
+    </div>
+</footer>
+
+
+{% schema %}
+  {
+    "name": "Footer",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+          "type": "color_background",
+          "id": "background",
+          "label": "Background Color"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "default": "In case of any queries or collaborations reach out to us.",
+        "label": "Heading"
+      },
+      {
+          "type": "text",
+          "id": "cta",
+          "label": "Button Text",
+          "default": "Reach out"
+      }
+      
+    ],
+    "presets": [
+      {
+        "name": "Footer"
+      }
+    ]
+  }
+{% endschema %}

@@ -75,3 +75,9 @@
 .custom--grid{
     display: grid !important;
 }
+
+header span, header-menu span,
+header a, header-menu a{
+    font-family: 'Chillax-Medium', sans-serif !important;
+    font-size: 14px;
+}
