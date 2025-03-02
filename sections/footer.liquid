@@ -1,21 +1,21 @@
 
 
 <footer id="mmh--footer" class="rounded-t-[16px]" style="background-color: {{ section.settings.background }};">
-  <div class="section-wrapper py-[60px] px-[60px]"> 
-    <div class="flex justify-between items-center mb-[76px]">
-      <img class="w-[150px]" src="{{ section.settings.logo |  img_url: 'master' }}" alt="Make Me Hero">
-      <p class="font-chillax-medium text-[18px]">
+  <div class="section-wrapper py-[24px] md:py-[60px] px-[28px] md:px-[60px]"> 
+    <div class="flex flex-col md:flex-row gap-[16px] justify-between items-center mb-[40px] md:mb-[76px]">
+      <img class="w-[100px] md:w-[150px]" src="{{ section.settings.logo |  img_url: 'master' }}" alt="Make Me Hero">
+      <p class="font-chillax-medium text-[14px] md:text-[18px] text-center md:text-right px-[30px] md:px-0">
         {{ section.settings.subtext }}
       </p>
     </div>
 
     {% comment %} Quick Links {% endcomment %}
-    <div class="flex justify-between mb-[32px] gap-[64px]">
-      <div class="flex gap-[64px]">
+    <div class="flex flex-col md:flex-row justify-between mb-[32px] gap-[24px] md:gap-[64px]">
+      <div class="flex flex-col md:flex-row gap-[32px] md:gap-[64px]">
         {% for block in section.blocks %}
           {% if block.type == 'link_list' %}
             <div>
-              <h4 class="text-white uppercase font-chillax-medium text-[18px] mb-[16px]">
+              <h4 class="text-white uppercase font-chillax-medium text-[14px] md:text-[18px] mb-[12px] md:mb-[16px]">
                 {{ block.settings.heading }}
               </h4>
               <ul>
@@ -23,7 +23,7 @@
                   <li>
                     <a
                       href="{{ link.url }}"
-                      class="text-[14px] font-chillax-medium uppercase link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                      class="text-[14px] font-chillax-medium uppercase mb-[8px] md:mb-[12px] block"
                     >
                       {{ link.title }}
                     </a>
@@ -59,7 +59,7 @@
     <div class="flex flex-col items-center">
       {% comment %} Footer Graphic {% endcomment %}
        <img class="mb-[16px]" src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/mmh--footer-graphic.svg?v=1740925739" alt="Footer">
-       <p class="text-white font-chillax-medium text-[14px] uppercase">© <script>document.write(new Date().getFullYear());</script>, MAKE ME HERO. All rights reserved.</p>
+       <p class="text-white font-chillax-medium text-center text-[12px] md:text-[14px] uppercase">© <script>document.write(new Date().getFullYear());</script>, MAKE ME HERO. All rights reserved.</p>
 
     </div>
 

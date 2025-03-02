@@ -20,6 +20,7 @@
         font-size: 18px;
         text-transform: uppercase;
         color: #868686;
+        top: 18px;
     }
 
     .home--contact-form .field::after,
@@ -33,14 +34,29 @@
         margin-bottom: 24px;
         box-shadow: none !important;
     }
+
+
+    @media (max-width: 750px) {
+      .home--contact-form input,
+      .home--contact-form textarea,
+      .home--contact-form input ~ label,
+      .home--contact-form textarea ~ label{
+        font-size: 14px;
+      }
+
+      .home--contact-form textarea{
+          min-height: 180px;
+      }
+    }
     
 </style>
 
 
 <section id="mmh--contact-form" style="background-color: {{ section.settings.background }};">
-    <div class="section-wrapper contact  section-{{ section.id }}-padding py-[60px] px-[60px]">
+    <div class="section-wrapper contact  section-{{ section.id }}-padding py-[40px] md:py-[60px] px-[28px] md:px-[60px] ">
+    <p class="font-chillax-medium text-left md:text-center text-[14px] md:text-[22px] mb-[16px] uppercase">Contact Form</p>
     {%- if section.settings.heading != blank -%}
-      <h2 class="title title-wrapper--no-top-margin inline-richtext font-chubbo-medium text-[36px] mb-[40px] text-center {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <h2 class="font-chubbo-medium text-left md:text-center text-[24px] md:text-[36px] mb-[24px] md:mb-[40px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ section.settings.heading }}
       </h2>
     {%- else -%}
@@ -51,7 +67,7 @@
     {%- liquid
       assign contact_form_class = 'isolate'
       if settings.animations_reveal_on_scroll
-        assign contact_form_class = 'home--contact-form isolate page-width page-width--narrow scroll-trigger flex flex-col items-center animate--slide-in'
+        assign contact_form_class = 'home--contact-form isolate mx-auto page-width--narrow scroll-trigger flex flex-col items-center animate--slide-in'
       endif
     -%}
     {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}

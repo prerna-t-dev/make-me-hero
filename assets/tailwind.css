@@ -53,5 +53,11 @@
         font-family: theme('fontFamily.chillax-medium') !important;
         font-size: 14px;
     }
+
+    @media (min-width: 990px) {
+        .desktop-block.md\:\!block {
+          display: block !important;
+        }
+    }
 }
  

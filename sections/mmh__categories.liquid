@@ -1,6 +1,9 @@
 <section id="mmh--explore-categories" style="background-color: {{ section.settings.background }};">
-    <div class="section-wrapper py-[60px] px-[60px]"> 
-        <div class="custom--grid grid-cols-4 gap-[40px]">
+    <div class="section-wrapper py-[28px] md:py-[60px] px-[28px] md:px-[60px]"> 
+        <h2 class="font-chubbo-medium text-center text-[28px] md:text-[48px] mb-[32px] md:mb-[40px]">
+            {{ section.settings.header }}
+        </h2>
+        <div class="custom--grid grid-cols-2 md:grid-cols-4 gap-[20px] md:gap-[40px]">
             {% for block in section.blocks %}
                 <div class="rounded-[18px] overflow-hidden {% if forloop.last %} col-span-2 {% endif %}">
                     <a href="{{ block.settings.url }}">

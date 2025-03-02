@@ -1,11 +1,13 @@
-<section id="mmh--story-of-the-month" style="background-color: {{ section.settings.background }};">
-    <div class="section-wrapper py-6 px-[60px] custom--grid grid-cols-2 items-center">  
+<section id="mmh--story-of-the-month" class="rounded-[16px]" style="background-color: {{ section.settings.background }};">
+    <div class="section-wrapper py-6 px-[28px] md:px-[60px] custom--grid grid-cols-1 md:grid-cols-2 items-center">  
         <div class="h-full flex flex-col justify-between py-12">
-            <h3 class="font-playwrite-regular uppercase text-[25px] italic mb-10">
+            <h3 class="font-playwrite-regular uppercase text-[17px] md:text-[25px] italic md:mb-[40px]">
                 {{ section.settings.header }}
             </h3>
+            <img class="md:hidden mb-[8px]" src="{{ section.settings.image |  img_url: 'master' }}" alt="Story of the month">
+
             <div>
-                <h4 class="font-chubbo-medium text-[36px] mb-6">
+                <h4 class="font-chubbo-medium text-[24px] md:text-[36px] mb-[18px] md:mb-[24px]">
                     {{ section.settings.subheader }}
                 </h4>
                 
@@ -14,7 +16,7 @@
                 </a>
             </div>
         </div>
-        <div>
+        <div class="hidden desktop-block md:!block">
             <img src="{{ section.settings.image |  img_url: 'master' }}" alt="Story of the month">
         </div>
     </div>

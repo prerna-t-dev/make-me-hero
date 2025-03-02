@@ -5,7 +5,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: bottom;
-        min-height: 100vh
+        min-height: 84vh
     }
 
     @media screen and (min-width: 750px) {
@@ -22,13 +22,13 @@
 
 <section id="mmh--hero-banner" style="background-color: {{ section.settings.background }};">
     <div class="section-wrapper text-white">
-        <h2 class="font-chubbo-medium text-[36px] text-white mb-4">
+        <h2 class="font-chubbo-medium text-[24px] md:text-[36px] text-center md:text-left text-white mb-[12px] md:mb-[16px]">
             {{ section.settings.header |  newline_to_br }}
         </h2>
-        <div class="font-chillax-medium text-lg text-[#D1CCFF] mb-4">
+        <div class="font-chillax-medium text-[14px] md:text-[18px] text-[#D1CCFF] text-center md:text-left mb-[12px] md:mb-[16px]">
             {{ section.settings.subheader |  newline_to_br  }}
         </div>
-        <a href="{{ section.settings.url }}" class="btn btn-primary w-fit">
+        <a href="{{ section.settings.url }}" class="btn btn-primary w-fit mx-auto md:ml-0 md:mr-auto">
             {{ section.settings.cta }}
         </a>
     </div>

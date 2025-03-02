@@ -1,36 +1,41 @@
 <section id="mmh--about-usp" style="background-color: {{ section.settings.background }};">
-    <div class="section-wrapper pt-[52px] pb-[112px] px-[84px] relative">  
-        <div class="absolute right-0 top-1/2 -translate-y-1/2">
+    <div class="section-wrapper pt-[28px] md:pt-[52px] pb-[56px] md:pb-[112px] px-[28px] md:px-[84px] relative">  
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 hidden desktop-block md:!block">
             <img src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/usp--svg-graphic.svg?v=1740681412" alt="graphic">
         </div>
-        <div class="flex pr-[10vw] relative gap-[94px]">
+        <div class="flex flex-col md:flex-row md:pr-[10vw] relative gap-[32px] md:gap-[94px]">
             <div class="flex-shrink-0">
                 {% comment %} Subtext {% endcomment %}
-                <p class="font-chillax-medium text-[18px] uppercase mb-4 relative z-[2]">
+                <p class="font-chillax-medium text-center md:text-left text-[14px] md:text-[18px] uppercase mb-[24px] relative z-[2]">
                     {{ section.settings.subheader }}
                     <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[-1]">
                         <img src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/Vector.svg?v=1740594600" alt="heart vector">
 
                     </span>
                 </p>
-                <h3 class="font-chubbo-medium text-[48px] leading-[1.1] mb-4">
+                <h3 class="font-chubbo-medium text-center md:text-left text-[28px] md:text-[48px] leading-[1.1] md:mb-4">
                     {{ section.settings.header }}
                 </h3>
 
-                <a href="{{ section.settings.url }}" class="btn btn-secondary w-fit">
+                <a href="{{ section.settings.url }}" class="btn btn-secondary w-fit mx-auto md:ml-0 md:mr-auto hidden desktop-block md:!block">
                     {{ section.settings.cta }}
                 </a>
 
             </div>
-            <div class="custom--grid grid-cols-3 gap-[52px]">
-                {% for block in section.blocks %}
-                    <div class="">
-                        <img class="rounded-[16px] mb-5" src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.title }}">
-                        <p>
-                            {{ block.settings.title }}
-                        </p>
-                    </div>
-                {% endfor %}
+            <div class="">
+                <div class="custom--grid grid-cols-3 gap-[20px] md:gap-[52px]">
+                    {% for block in section.blocks %}
+                        <div class="">
+                            <img class="rounded-[16px] mb-[8px] md:mb-[20px]" src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.title }}">
+                            <p class="text-[13px] md:text-[18px] font-chillax-medium">
+                                {{ block.settings.title }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+                <a href="{{ section.settings.url }}" class="btn btn-secondary w-fit mx-auto md:hidden mt-[20px]">
+                    {{ section.settings.cta }}
+                </a>
             </div>
         </div>  
     </div>
