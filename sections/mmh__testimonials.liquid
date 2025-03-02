@@ -1,0 +1,95 @@
+<section id="mmh--testimonials" style="background-color: {{ section.settings.background }};">
+    <div class="section-wrapper py-[40px] px-[60px]"> 
+        <div class="custom--grid grid-cols-3 gap-[60px]">
+            {% for block in section.blocks %}
+                <div class="">
+                    <div class="rounded-[14px] px-[28px] py-[24px] pb-[40px] mb-[46px] flex flex-col items-center relative" style="background-color: {{ section.settings.review_background_color }};">
+
+                        <img class="mb-[22px]" src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/mmh-star--review-icon.svg?v=1740861239" alt="5 star review">
+                        <div class="text-center font-chillax-medium text-black">
+                            {{ block.settings.title }}
+                        </div>
+
+                        {% comment %} Polygon design {% endcomment %}
+                        <div class="absolute left-1/2 -translate-x-1/2 bottom-[2px] translate-y-full">
+                            <img src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/Polygon_2.svg?v=1740861845" alt="review polygon">
+                        </div>
+                       
+                    </div>
+
+                    <div class="author--details flex flex-col items-center ">
+                        <img class="w-[60px] h-[60px] rounded-full mb-3" src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.reviewer_name }}">
+                        <h4 class="text-center uppercase font-chillax-medium mb-2">
+                            {{ block.settings.reviewer_name }}
+                        </h4>
+                        <p class="text-center text-[14px] font-chillax-medium">
+                            {{ block.settings.reviewer_subtext }}
+                        </p>
+                    </div>
+
+
+                </div>
+            {% endfor %}
+        </div> 
+    </div>
+</section>
+
+
+
+
+{% schema %}
+    {
+        "name": "Home - Testimonials",
+        "settings": [
+            {
+                "type": "color_background",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "color",
+                "id": "review_background_color",
+                "label": "Review - Background Color"
+            },
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header",
+                "default": "Tales from Happy Families"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "review",
+                "type": "review",
+                "settings": [
+                    {
+                        "type": "richtext",
+                        "id": "title",
+                        "label": "Review"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Reviewer Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "reviewer_name",
+                        "label": "Reviewer Name"
+                    },
+                    {
+                        "type": "text",
+                        "id": "reviewer_subtext",
+                        "label": "Reviewer Subtext"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Home - Testimonials"
+            }
+        ]
+    }
+{% endschema %}

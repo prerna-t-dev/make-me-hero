@@ -1,0 +1,64 @@
+<section id="mmh--explore-categories" style="background-color: {{ section.settings.background }};">
+    <div class="section-wrapper py-[60px] px-[60px]"> 
+        <div class="custom--grid grid-cols-4 gap-[40px]">
+            {% for block in section.blocks %}
+                <div class="rounded-[18px] overflow-hidden {% if forloop.last %} col-span-2 {% endif %}">
+                    <a href="{{ block.settings.url }}">
+                        <img class="w-full h-full object-cover" src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.title }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div> 
+    </div>
+</section>
+
+
+
+
+{% schema %}
+    {
+        "name": "Home - Explore Categories",
+        "settings": [
+            {
+                "type": "color_background",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header",
+                "default": "Explore our Categories"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "category",
+                "type": "category",
+                "limit": 7,
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Category Image"
+                    },
+                    {
+                        "type": "url",
+                        "id": "url",
+                        "label": "URL"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Home - Explore Categories"
+            }
+        ]
+    }
+{% endschema %}

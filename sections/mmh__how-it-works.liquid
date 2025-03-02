@@ -1,4 +1,4 @@
-<section id="mmh--story-of-the-month" style="background-color: {{ section.settings.background }};">
+<section id="mmh--how-it-works" style="background-color: {{ section.settings.background }};">
     <div class="section-wrapper py-[40px] px-[60px] flex gap-[72px] items-center">  
         <div class="flex-shrink-0 w-[40%]">
             <img src="{{ section.settings.image |  img_url: 'master' }}" alt="How it works">
@@ -11,7 +11,7 @@
             <ul>
                 {% for block in section.blocks %}
                     <li class="w-4/5 {% unless forloop.last %} mb-10 {% endunless %} {% if forloop.index == 2 %}ml-[20%]{% endif %}">
-                        <h3 class="font-playwrite-regular italic text-[25px] mb-5">
+                        <h3 class="font-playwrite-regular italic text-[25px] mb-[20px]">
                             {{ block.settings.title }}
                         </h3>
                         <p class="font-chillax-medium text-[18px] mr-10">

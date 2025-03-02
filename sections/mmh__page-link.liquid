@@ -1,0 +1,45 @@
+<section id="mmh--page-link" style="background-color: {{ section.settings.background }};">
+    <div class="section-wrapper text-black py-[60px] px-[60px] flex flex-col items-center">
+        <h2 class="text-center font-chubbo-medium text-[48px] mb-[32px]">
+            {{ section.settings.header }}
+        </h2>
+        <a href="{{ section.settings.url }}" class="btn btn-secondary w-fit">
+            {{ section.settings.cta }}
+        </a>
+    </div>
+</section>
+
+
+{% schema %}
+    {
+        "name": "Page Link",
+        "settings": [
+            {
+                "type": "color_background",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header"
+            },
+            {
+                "type": "text",
+                "id": "cta",
+                "label": "CTA",
+                "default": "Shop Now"
+            },
+            {
+                "type": "url",
+                "id": "url",
+                "label": "URL"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Page Link"
+            }
+        ]
+    }
+{% endschema %}
