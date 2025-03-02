@@ -1,9 +1,26 @@
+<style>
+
+    .slick--bestsellers .slick-track {
+        display: flex !important;
+        align-items: stretch !important; /* Ensures all items are the same height */
+    }
+
+    .slick--bestsellers .slick-slide {
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right : 20px;
+    }
+
+    
+</style>
 <section id="mmh--bestsellers" style="background-color: {{ section.settings.background }};">
-    <div class="section-wrapper pt-[56px] pb-[28px] md:py-[82px] px-[28px] md:px-[60px]">  
+    <div class="section-wrapper pt-[56px] pb-[28px] md:py-[82px] pl-[28px] md:px-[60px]">  
         <h2 class="font-chubbo-medium text-[30px] md:text-[48px] mb-[24px] md:mb-[48px]">
             {{ section.settings.header }}
         </h2>
-        <div class="custom--grid grid-cols-2 md:grid-cols-4 gap-[20px] md:gap-[36px]">
+        <div class="slick--bestsellers custom--grid grid-cols-2_ md:grid-cols-4 gap-[20px] md:gap-[36px]">
             {% for product in section.settings.collection.products limit:4 %}
                 <div class="flex flex-col h-full">
                     <img class="rounded-[16px] mb-[16px] md:mb-[24px]" src="{{ product.featured_image |  img_url: 'master' }}" alt="{{ product.title }}">
@@ -26,6 +43,32 @@
         </div>
     </div>
 </section>
+
+
+<script>
+
+
+    $(document).ready(function(){
+        $('.slick--bestsellers').slick({
+            infinite: false,
+            centerMode: false,
+            speed: 300,
+            slidesToShow: 1.5,
+            slidesToScroll: 1,
+            dots: false,      
+            arrows: false,   
+            mobileFirst: true,
+            responsive: [
+                {
+                    breakpoint: 990,
+                    settings: "unslick"
+                }
+            ]
+        });
+    });
+
+
+</script>
 
 
 

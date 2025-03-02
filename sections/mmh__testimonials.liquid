@@ -1,41 +1,172 @@
+
+<style>
+
+
+    .slick--social-proof {
+        width: 100%;
+        overflow: visible;
+    }
+
+    
+
+
+    .slick--social-proof .slick-slider{
+        overflow: hidden !important;
+    }
+
+    .slick--social-proof .slick-list{
+        overflow: hidden;
+    }
+
+
+    /* .slick--social-proof .slick-track
+    {
+        display: flex !important;
+    } */
+
+    .slick--social-proof .slick-list .slick-slide{
+        padding: 0 30px;
+        height: inherit !important;
+    } 
+
+
+    .testimonials--wrapper{
+        position: relative;
+        max-width: 100%;
+    }
+
+    .testimonials--wrapper .custom-prev,
+    .testimonials--wrapper .custom-next {
+        position: absolute;
+        top: 35%;
+        transform: translateY(-50%);
+        z-index: 10;
+        background: none;
+        border: none;
+        cursor: pointer;
+        width: 15px;
+        height: 30px;
+    }
+
+    .testimonials--wrapper .custom-prev {
+        left: -0; 
+        transform: translate(-100%, -50%);
+    }
+
+    .testimonials--wrapper .custom-next {
+        right: 0; 
+        transform: translate(100%, -50%);
+    }
+
+    /* .testimonials--wrapper .custom-prev img,
+    .testimonials--wrapper .custom-next img {
+        width: 100%;
+        height: auto;
+    } */
+
+
+
+
+
+
+
+    @media (max-width:990px ) {
+        .slick--social-proof .slick-list .slick-slide{
+            padding: 0 10px;
+            height: inherit !important;
+        }
+        
+    }
+
+
+</style>
+
+
 <section id="mmh--testimonials" style="background-color: {{ section.settings.background }};">
     <div class="section-wrapper py-[40px] md:py-[40px] px-[28px] md:px-[60px]"> 
         <h2 class="font-chubbo-medium text-center text-[28px] md:text-[36px] mb-[30px] md:mb-[56px]">
             {{ section.settings.header }}
         </h2>
-        <div class="custom--grid grid-cols-1 md:grid-cols-3 gap-[60px]">
-            {% for block in section.blocks %}
-                <div class="">
-                    <div class="rounded-[14px] px-[28px] py-[24px] pb-[40px] mb-[46px] flex flex-col items-center relative" style="background-color: {{ section.settings.review_background_color }};">
+        <div class="testimonials--wrapper">
+            <button class="slick-prev custom-prev">
+                <img src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/left-arrow.svg?v=1740953097" alt="Previous">
+            </button>
+            <div class="slick--social-proof md:px-[30px] custom--grid grid-cols-1_ md:grid-cols-3_ gap-[60px]_">
+                {% for block in section.blocks %}
+                    <div class="">
+                        <div class="rounded-[14px] px-[28px] py-[24px] pb-[40px] mb-[46px] flex flex-col items-center relative" style="background-color: {{ section.settings.review_background_color }};">
 
-                        <img class="mb-[22px]" src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/mmh-star--review-icon.svg?v=1740861239" alt="5 star review">
-                        <div class="text-center font-chillax-medium text-black text-[14px] md:text-[16px]">
-                            {{ block.settings.title }}
+                            <img class="mb-[22px]" src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/mmh-star--review-icon.svg?v=1740861239" alt="5 star review">
+                            <div class="text-center font-chillax-medium text-black text-[14px] md:text-[16px]">
+                                {{ block.settings.title }}
+                            </div>
+
+                            {% comment %} Polygon design {% endcomment %}
+                            <div class="absolute left-1/2 -translate-x-1/2 bottom-[2px] translate-y-full">
+                                <img src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/Polygon_2.svg?v=1740861845" alt="review polygon">
+                            </div>
+                        
                         </div>
 
-                        {% comment %} Polygon design {% endcomment %}
-                        <div class="absolute left-1/2 -translate-x-1/2 bottom-[2px] translate-y-full">
-                            <img src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/Polygon_2.svg?v=1740861845" alt="review polygon">
+                        <div class="author--details flex flex-col items-center ">
+                            <img class="w-[60px] h-[60px] rounded-full mb-3" src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.reviewer_name }}">
+                            <h4 class="text-center uppercase text-[14px] md:text-[14px] font-chillax-medium mb-2">
+                                {{ block.settings.reviewer_name }}
+                            </h4>
+                            <p class="text-center text-[12px] md:text-[14px] font-chillax-medium">
+                                {{ block.settings.reviewer_subtext }}
+                            </p>
                         </div>
-                       
+
+
                     </div>
-
-                    <div class="author--details flex flex-col items-center ">
-                        <img class="w-[60px] h-[60px] rounded-full mb-3" src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.reviewer_name }}">
-                        <h4 class="text-center uppercase text-[14px] md:text-[14px] font-chillax-medium mb-2">
-                            {{ block.settings.reviewer_name }}
-                        </h4>
-                        <p class="text-center text-[12px] md:text-[14px] font-chillax-medium">
-                            {{ block.settings.reviewer_subtext }}
-                        </p>
-                    </div>
-
-
-                </div>
-            {% endfor %}
-        </div> 
+                {% endfor %}
+            </div> 
+            <button class="slick-next custom-next">
+                <img src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/right-arrow.svg?v=1740953099" alt="Next">
+            </button>
+        </div>
+        
     </div>
 </section>
+
+
+
+<script>
+
+
+    $(document).ready(function(){
+        $('.slick--social-proof').slick({
+            infinite: true,
+            centerMode: false,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,      
+            arrows: true,   
+            mobileFirst: true,
+            adaptiveHeight: true,
+            prevArrow: $('.custom-prev'),
+            nextArrow: $('.custom-next'),
+            responsive: [
+                {
+                    breakpoint: 990,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        centerMode:false,
+                        dots: false ,
+                        adaptiveHeight: true,
+        
+                    }
+                }
+            ]
+        });
+    });
+
+
+</script>
 
 
 

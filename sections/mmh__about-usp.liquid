@@ -1,10 +1,29 @@
+<style>
+
+    .slick--usp-grid .slick-slide {
+        margin-right : 20px;
+    }
+
+    @media (min-width: 990px) {
+        .usp--grid .grid-box:nth-last-child(2):nth-child(3n + 1) {
+            grid-column: 2 / span 2;
+        }
+
+        .usp--grid .grid-box:last-child:nth-child(3n + 2) {
+            grid-column: 4 / span 2;
+        }
+    }
+</style>  
+
+
+
 <section id="mmh--about-usp" style="background-color: {{ section.settings.background }};">
-    <div class="section-wrapper pt-[28px] md:pt-[52px] pb-[56px] md:pb-[112px] px-[28px] md:px-[84px] relative">  
+    <div class="section-wrapper pt-[28px] md:pt-[52px] pb-[56px] md:pb-[112px] px-0 md:px-[84px] relative">  
         <div class="absolute right-0 top-1/2 -translate-y-1/2 hidden desktop-block md:!block">
             <img src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/usp--svg-graphic.svg?v=1740681412" alt="graphic">
         </div>
         <div class="flex flex-col md:flex-row md:pr-[10vw] relative gap-[32px] md:gap-[94px]">
-            <div class="flex-shrink-0">
+            <div class="flex-shrink-0 px-[28px] md:px-0">
                 {% comment %} Subtext {% endcomment %}
                 <p class="font-chillax-medium text-center md:text-left text-[14px] md:text-[18px] uppercase mb-[24px] relative z-[2]">
                     {{ section.settings.subheader }}
@@ -22,10 +41,10 @@
                 </a>
 
             </div>
-            <div class="">
-                <div class="custom--grid grid-cols-3 gap-[20px] md:gap-[52px]">
+            <div class="pl-[28px] md:pl-0">
+                <div class="usp--grid slick--usp-grid custom--grid md:grid-cols-6 gap-[20px] md:gap-[52px]">
                     {% for block in section.blocks %}
-                        <div class="">
+                        <div class="grid-box md:col-span-2">
                             <img class="rounded-[16px] mb-[8px] md:mb-[20px]" src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.title }}">
                             <p class="text-[13px] md:text-[18px] font-chillax-medium">
                                 {{ block.settings.title }}
@@ -42,6 +61,30 @@
 </section>
 
 
+<script>
+
+
+    $(document).ready(function(){
+        $('.slick--usp-grid').slick({
+            infinite: false,
+            centerMode: false,
+            speed: 300,
+            slidesToShow: 2.5,
+            slidesToScroll: 1,
+            dots: false,      
+            arrows: false,   
+            mobileFirst: true,
+            responsive: [
+                {
+                    breakpoint: 990,
+                    settings: "unslick"
+                }
+            ]
+        });
+    });
+
+
+</script>
 
 
 {% schema %}

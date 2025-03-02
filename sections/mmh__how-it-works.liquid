@@ -12,7 +12,7 @@
 
             <ul>
                 {% for block in section.blocks %}
-                    <li class="md:w-4/5 text-center md:text-left {% unless forloop.last %} mb-[30px] md:mb-[40px] {% endunless %} {% if forloop.index == 2 %}md:ml-[20%]{% endif %}">
+                    <li class="md:w-4/5 text-center md:text-left {% unless forloop.last %} mb-[30px] md:mb-[40px] {% endunless %} {% if forloop.index == 2 %} md:ml-[20%] {% endif %}">
                         <h3 class="font-playwrite-regular italic text-[16px] md:text-[25px] mb-[12px] md:mb-[20px]">
                             {{ block.settings.title }}
                         </h3>
