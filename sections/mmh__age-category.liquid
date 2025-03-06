@@ -1,17 +1,17 @@
 <section id="mmh--age-category" style="background-color: {{ section.settings.background }};">
     <div class="section-wrapper pt-[56px] md:pt-[100px] pb-[28px] md:pb-[52px] px-[28px] md:px-[60px]">    
-        <h3 class="text-center font-chubbo-medium text-[24px] md:text-[36px] mb-[32px] md:mb-[48px]">
+        <h3 class="text-center font-chubbo-medium text-[24px] md:text-[36px] mb-[32px] md:mb-[48px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             {{ section.settings.header }}
         </h3>  
-        <div class="custom--grid grid-cols-1 md:grid-cols-3 gap-[24px]">
+        <div class="custom--grid grid-cols-1 lg:grid-cols-3 gap-[24px] sm:max-w-[550px] lg:max-w-full mx-auto {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             {% for block in section.blocks %}
                 <div class="rounded-[14px]" style="background-image: url({{ block.settings.image |  img_url: 'master' }}); background-size: 100%; background-repeat: no-repeat;">
-                    <a class="w-full px-[16px] py-[32px] md:py-[48px] block" href="{{ collection.url }}">
+                    <a class="w-full px-[16px] py-[32px] xl:py-[48px] block" href="{{ collection.url }}">
                         <div class="max-w-2/3 text-black">
-                            <h4 class="font-chillax-medium text-[16px] md:text-[18px] mb-[8px] md:mb-[12px]">
+                            <h4 class="font-chillax-medium text-[16px] xl:text-[18px] mb-[8px] xl:mb-[12px]">
                                 {{ block.settings.title }}
                             </h4>
-                            <p class="font-playwrite-regular italic text-[18px] md:text-[25px]">
+                            <p class="font-playwrite-regular text-[18px] xl:text-[25px]">
                                 {{ block.settings.age_range }}
                             </p>
                         </div>

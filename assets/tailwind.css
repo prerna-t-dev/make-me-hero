@@ -34,6 +34,11 @@
 
 /* Custom Utilities */
 @layer utilities {
+    .section-wrapper{
+        max-width: 1440px;
+        margin: auto;
+    }
+
     .custom--grid {
         display: grid !important;
     }
@@ -49,7 +54,8 @@
     header span, 
     header-menu span,
     header a, 
-    header-menu a {
+    header-menu a,
+    header summary, header-menu summary {
         font-family: theme('fontFamily.chillax-medium') !important;
         font-size: 14px;
     }
@@ -57,6 +63,13 @@
     @media (min-width: 990px) {
         .desktop-block.md\:\!block {
           display: block !important;
+        }
+    }
+
+    @media (min-width: 1920px) {
+        .section-wrapper{
+            max-width: 1860px;
+            margin: auto;
         }
     }
 }

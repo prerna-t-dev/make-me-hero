@@ -3,8 +3,8 @@
         <div class="flex-shrink-0 w-[40%] hidden desktop-block md:!block">
             <img src="{{ section.settings.image |  img_url: 'master' }}" alt="How it works">
         </div>
-        <div class="md:w-[60%]">
-            <h2 class="font-chubbo-medium text-center md:text-left text-[30px] md:text-[48px] mb-[24px] md:mb-[48px]">
+        <div class="md:w-[60%] sm:max-w-[650px] md:max-w-full">
+            <h2 class="font-chubbo-medium text-center md:text-left text-[30px] md:text-[48px] mb-[24px] md:mb-[48px]  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                 {{ section.settings.header }}
             </h2>
 
@@ -12,8 +12,8 @@
 
             <ul>
                 {% for block in section.blocks %}
-                    <li class="md:w-4/5 text-center md:text-left {% unless forloop.last %} mb-[30px] md:mb-[40px] {% endunless %} {% if forloop.index == 2 %} md:ml-[20%] {% endif %}">
-                        <h3 class="font-playwrite-regular italic text-[16px] md:text-[25px] mb-[12px] md:mb-[20px]">
+                    <li class="md:w-4/5 text-center md:text-left {% unless forloop.last %} mb-[30px] md:mb-[40px] {% endunless %} {% if forloop.index == 2 %} md:ml-[20%] {% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                        <h3 class="font-playwrite-regular text-[16px] md:text-[25px] mb-[12px] md:mb-[20px]">
                             {{ block.settings.title }}
                         </h3>
                         <p class="font-chillax-medium text-[14px] md:text-[18px] md:mr-10">

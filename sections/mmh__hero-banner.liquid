@@ -1,4 +1,5 @@
 <style>
+    
     #mmh--hero-banner .section-wrapper{
         padding: 40px 30px;
         background-image: url({{ section.settings.bg_img_mob |  img_url: 'master' }});
@@ -8,7 +9,9 @@
         min-height: 84vh
     }
 
-    @media screen and (min-width: 750px) {
+    
+
+    @media screen and (min-width: 990px) {
         #mmh--hero-banner .section-wrapper{
             padding: 146px 60px;
             background-image: url({{ section.settings.bg_img_desk |  img_url: 'master' }});
@@ -17,18 +20,31 @@
         }
     }
 
+
+    @media screen and (min-width: 750px) {
+        #mmh--hero-banner .section-wrapper{
+            min-height: 100vh
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        #mmh--hero-banner .section-wrapper{
+            min-height: 70vh
+        }
+    }
+
 </style>
 
 
 <section id="mmh--hero-banner" style="background-color: {{ section.settings.background }};">
-    <div class="section-wrapper text-white">
-        <h2 class="font-chubbo-medium text-[24px] md:text-[36px] text-center md:text-left text-white mb-[12px] md:mb-[16px]">
+    <div class="section-wrapper text-white ">
+        <h2 class="font-chubbo-medium text-[24px] md:text-[36px] text-center md:text-left text-white mb-[12px] md:mb-[16px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             {{ section.settings.header |  newline_to_br }}
         </h2>
-        <div class="font-chillax-medium text-[14px] md:text-[18px] text-[#D1CCFF] text-center md:text-left mb-[12px] md:mb-[16px]">
+        <div class="font-chillax-medium text-[14px] md:text-[18px] text-[#D1CCFF] text-center md:text-left mb-[12px] md:mb-[16px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             {{ section.settings.subheader |  newline_to_br  }}
         </div>
-        <a href="{{ section.settings.url }}" class="btn btn-primary w-fit mx-auto md:ml-0 md:mr-auto">
+        <a href="{{ section.settings.url }}" class="btn btn-primary w-fit mx-auto md:ml-0 md:mr-auto {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             {{ section.settings.cta }}
         </a>
     </div>

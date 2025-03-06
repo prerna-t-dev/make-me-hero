@@ -17,12 +17,12 @@
 </style>
 <section id="mmh--bestsellers" style="background-color: {{ section.settings.background }};">
     <div class="section-wrapper pt-[56px] pb-[28px] md:py-[82px] pl-[28px] md:px-[60px]">  
-        <h2 class="font-chubbo-medium text-[30px] md:text-[48px] mb-[24px] md:mb-[48px]">
+        <h2 class="font-chubbo-medium text-[30px] md:text-[48px] mb-[24px] md:mb-[48px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             {{ section.settings.header }}
         </h2>
         <div class="slick--bestsellers custom--grid grid-cols-2_ md:grid-cols-4 gap-[20px] md:gap-[36px]">
             {% for product in section.settings.collection.products limit:4 %}
-                <div class="flex flex-col h-full">
+                <div class="flex flex-col h-full {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                     <img class="rounded-[16px] mb-[16px] md:mb-[24px]" src="{{ product.featured_image |  img_url: 'master' }}" alt="{{ product.title }}">
 
                     <div class="prod--card flex flex-col flex-grow justify-between">
@@ -59,6 +59,12 @@
             arrows: false,   
             mobileFirst: true,
             responsive: [
+                {
+                    breakpoint: 750,
+                    settings: {
+                        slidesToShow: 2.5,
+                    }
+                },
                 {
                     breakpoint: 990,
                     settings: "unslick"

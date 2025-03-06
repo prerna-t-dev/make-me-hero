@@ -14,7 +14,16 @@
       <div class="flex flex-col md:flex-row gap-[32px] md:gap-[64px]">
         {% for block in section.blocks %}
           {% if block.type == 'link_list' %}
-            <div>
+            <div class="relative">
+              {% unless forloop.last %}
+                <div class="absolute bg-[#B12D06] w-full h-[1px] bottom-[-12px] md:hidden">
+
+                </div>
+                <div class="absolute hidden desktop-block md:!block h-full w-[0.5px] bg-[#FFFFFF] right-[-28px]">
+
+                </div>
+
+              {% endunless %}
               <h4 class="text-white uppercase font-chillax-medium text-[14px] md:text-[18px] mb-[12px] md:mb-[16px]">
                 {{ block.settings.heading }}
               </h4>
@@ -38,7 +47,7 @@
 
       {% comment %} Social Links  {% endcomment %}
       <div>
-        <h4 class="uppercase font-chillax-medium text-[18px] mb-[16px]">
+        <h4 class="uppercase font-chillax-medium text-[16px] xl:text-[18px] mb-[16px]">
           Connect
         </h4>
         <div class="flex gap-[14px]">
