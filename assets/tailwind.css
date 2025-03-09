@@ -72,5 +72,123 @@
             margin: auto;
         }
     }
+
+
+
+
+    /*======= Product Page ========*/
+    .product--custom-gallery .product__media-wrapper ul.product__media-list{
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 36px !important
+    }
+
+    .product--custom-gallery .product__media-wrapper ul.product__media-list li{
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 30px;
+        overflow: hidden;
+    }
+
+    .product--custom-gallery .product__media-wrapper ul.product__media-list li:first-child{
+        grid-column: 1/ span 2;
+    }
+
+
+    .product__description h3{
+        font-family: theme('fontFamily.chillax-medium');
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 23px;
+        letter-spacing: 0%;
+        color: #1E953D;
+        margin-bottom: 8px;
+    }
+
+
+    .accordion details > summary .icon-caret-minus{
+        display: none !important;
+    }
+
+    .accordion details[open] > summary .icon-caret-minus{
+        display: block !important;
+    }
+
+    .accordion details[open] > summary .icon-caret-minus{
+        display: none !important;
+    }
+
+
+
+    /* PDP -- product option selector */
+    .product .bcpo-title{
+        font-family: theme('fontFamily.chillax-medium');
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 23px;
+        letter-spacing: 0%;
+    }
+
+    .product #bcpo .bcpo-text input,
+    .product #bcpo textarea{
+        border-radius: 8px !important;
+        padding: 8px 16px !important;
+        font-family: theme('fontFamily.chillax-medium');
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 17.96px;
+        letter-spacing: 0%;
+    }
+
+    .product #bcpo textarea{
+        min-height: 110px  !important;
+    }
+
+    .product #bcpo .bcpo-radios > label{
+        font-family: theme('fontFamily.chillax-medium');
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 17.96px;
+        letter-spacing: 0%;
+        text-align: center;
+        color: #868686;
+    }
+
+
+    .product #bcpo input[type="file"] {
+        font-family: theme('fontFamily.chillax-medium');
+        font-size: 13px; /* Adjust font size */
+        color: #868686; /* Text color */
+    }
+
+    /* Style the file upload button for Chrome, Edge, and Safari */
+    .product #bcpo input[type="file"]::-webkit-file-upload-button {
+        font-family: theme('fontFamily.chillax-medium');
+        font-size: 24px;
+        font-weight: medium;
+        color: black;
+        background: white;
+        border: 1px solid black;
+        border-radius: 8px; /* Rounded corners */
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+
+    /* Style the file upload button for Firefox */
+    .product #bcpo input[type="file"]::file-selector-button {
+        font-family: theme('fontFamily.chillax-medium');
+        font-size: 14px;
+        font-weight: medium;
+        color: black;
+        background: white;
+        border: 1px solid black;
+        border-radius: 8px;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+      
 }
  
