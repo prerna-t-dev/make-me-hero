@@ -48,7 +48,7 @@
     {%- if show_badges %} price--show-badge{% endif -%}
   "
 >
-  <div class="price__container">
+  <div class="price__container !mb-0">
     {%- comment -%}
       Explanation of description list:
         - div.price__regular: Displayed when there are no variants on sale
@@ -58,11 +58,11 @@
       {%- if product.quantity_price_breaks_configured? -%}
         {%- if show_compare_at_price and compare_at_price -%}
           {%- unless product.price_varies == false and product.compare_at_price_varies %}
-            <span class="visually-hidden visually-hidden--inline">
+            <span class="visually-hidden visually-hidden--inline font-chillax-medium text-[18px]">
               {{- 'products.product.price.regular_price' | t -}}
             </span>
             <span>
-              <s class="price-item price-item--regular variant-item__old-price">
+              <s class="price-item price-item--regular font-chillax-medium text-[18px] variant-item__old-price">
                 {% if settings.currency_code_enabled %}
                   {{ compare_at_price | money_with_currency }}
                 {% else %}
@@ -72,22 +72,22 @@
             </span>
           {%- endunless -%}
         {%- endif -%}
-        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-        <span class="price-item price-item--regular">
+        <span class="visually-hidden visually-hidden--inline font-chillax-medium text-[18px]">{{ 'products.product.price.regular_price' | t }}</span>
+        <span class="price-item price-item--regular font-chillax-medium text-[18px]">
           {{- 'products.product.volume_pricing.price_range' | t: minimum: money_price_min, maximum: money_price_max -}}
         </span>
       {%- else -%}
-        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-        <span class="price-item price-item--regular">
+        <span class="visually-hidden visually-hidden--inline font-chillax-medium text-[18px]">{{ 'products.product.price.regular_price' | t }}</span>
+        <span class="price-item price-item--regular font-chillax-medium text-[18px]">
           {{ money_price }}
         </span>
       {%- endif -%}
     </div>
     <div class="price__sale">
       {%- unless product.price_varies == false and product.compare_at_price_varies %}
-        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+        <span class="visually-hidden visually-hidden--inline font-chillax-medium text-[18px]">{{ 'products.product.price.regular_price' | t }}</span>
         <span>
-          <s class="price-item price-item--regular">
+          <s class="price-item price-item--regular font-chillax-medium text-[18px]">
             {% if settings.currency_code_enabled %}
               {{ compare_at_price | money_with_currency }}
             {% else %}
@@ -96,8 +96,8 @@
           </s>
         </span>
       {%- endunless -%}
-      <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-      <span class="price-item price-item--sale price-item--last">
+      <span class="visually-hidden visually-hidden--inline font-chillax-medium text-[18px]">{{ 'products.product.price.sale_price' | t }}</span>
+      <span class="price-item price-item--sale price-item--last font-chillax-medium text-[18px]">
         {{ money_price }}
       </span>
     </div>

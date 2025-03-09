@@ -79,7 +79,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit_ rounded-[7px] min-h-[44px] text-white uppercase button_ btn btn-secondary button--full-width justify-center items-center !py-[10px]"
+            class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
@@ -93,22 +93,6 @@
             </span>
             {%- render 'loading-spinner' -%}
           </button>
-          <!-- Buy Now Button -->
-          {% comment %} <button
-          type="button"
-          id="BuyNowButton-{{ section_id }}"
-          class="product-form__submit button button--full-width button--secondary"
-          {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
-            disabled
-          {% endif %}
-          >
-          <span>{%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
-            {{ 'products.product.sold_out' | t }}
-          {%- else -%}
-            Buy Now
-          {%- endif -%}</span>
-          </button> {% endcomment %}
-
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}
@@ -163,35 +147,3 @@
     <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 </div>
-
-
-
-<script>
-  // Buy Now - Button
-  document.addEventListener("DOMContentLoaded", function () {
-    const buyNowButton = document.getElementById("BuyNowButton-{{ section_id }}");
-    const form = buyNowButton.closest("form");
-
-    buyNowButton.addEventListener("click", function () {
-      // Check if form is valid
-      if (!form.checkValidity()) {
-        form.reportValidity(); // Show validation errors
-        console.log(form.reportValidity())
-        return; // Stop execution if validation fails
-      }
-
-      const formData = new FormData(form);
-      formData.append("return_to", "/checkout"); // Redirect to checkout after adding
-
-      fetch('/cart/add.js', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        window.location.href = "/checkout"; // Redirect user to checkout
-      })
-      .catch(error => console.error("Error:", error));
-    });
-  });
-</script>
