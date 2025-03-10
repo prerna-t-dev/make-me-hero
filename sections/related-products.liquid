@@ -20,38 +20,124 @@
   }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient no-js-hidden">
-  <product-recommendations
-    class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+<style>
+
+    .slick--related-products .slick-track {
+        display: flex !important;
+        align-items: stretch !important; /* Ensures all items are the same height */
+    }
+
+    .slick--related-products .slick-slide {
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right : 20px;
+    }
+
+    
+</style>
+
+<div class="color-{{ section.settings.color_scheme }} gradient ">
+  <div
+    class="product-recommendations related-products page-width_ pt-[56px] pb-[28px] md:py-[82px] pl-[28px] md:px-[60px]"
     data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
   >
     {% if recommendations.performed and recommendations.products_count > 0 %}
-      <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+      <h2 class="font-chubbo-medium text-[30px] md:text-[48px] mb-[24px] md:mb-[48px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ section.settings.heading }}
       </h2>
-      <ul
-        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
-        role="list"
+      <div
+        class="slick--related-products custom--grid grid-cols-2_ md:grid-cols-4 gap-[20px] md:gap-[36px]"
+        
       >
         {% for recommendation in recommendations.products %}
-          <li class="grid__item">
-            {% render 'card-product',
-              card_product: recommendation,
-              media_aspect_ratio: section.settings.image_ratio,
-              image_shape: section.settings.image_shape,
-              show_secondary_image: section.settings.show_secondary_image,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating
-            %}
-          </li>
+            {% render 'card-product__mmh', product: recommendation %}
         {% endfor %}
-      </ul>
+      </div>
     {% endif %}
-  </product-recommendations>
+  </div>
   {% if section.settings.image_shape == 'arch' %}
     {% render 'mask-arch' %}
   {%- endif -%}
 </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    function initSlick() {
+        let $slider = $(".slick--related-products");
+        console.log($slider)
+
+        if ($slider.length === 0 || $slider.children().length === 0) {
+            console.log("Slick slider not found or empty. Skipping initialization.");
+            return;
+        }
+
+        if ($slider.hasClass("slick-initialized")) {
+            console.log("Destroying existing Slick instance...");
+            $slider.slick("unslick");
+        }
+
+        console.log("Initializing Slick...");
+        $slider.slick({
+            infinite: false,
+            speed: 400,
+            slidesToShow: 1.5,
+            slidesToScroll: 1,
+            dots: false,
+            arrows: false,
+            mobileFirst: true,
+            responsive: [
+                {
+                    breakpoint: 750,
+                    settings: {
+                        slidesToShow: 2.5,
+                    },
+                },
+                {
+                    breakpoint: 990,
+                    settings: "unslick"
+                }
+            ],
+        });
+    }
+
+    function loadProductRecommendations() {
+        const productRecommendations = document.querySelector(".product-recommendations");
+        if (!productRecommendations) return;
+
+        const requestUrl = productRecommendations.dataset.url;
+        console.log("Fetching product recommendations from:", requestUrl);
+
+        fetch(requestUrl)
+            .then(response => response.text())
+            .then(html => {
+                let tempContainer = document.createElement("div");
+                tempContainer.innerHTML = html;
+                let newContent = tempContainer.querySelector(".related-products");
+
+                if (newContent) {
+                    console.log("Updating product recommendations...");
+                    productRecommendations.innerHTML = newContent.innerHTML;
+
+                    // Wait for DOM update before initializing Slick
+                    setTimeout(() => {
+                        initSlick();
+                    }, 200);
+                } else {
+                    console.log("No new content found in fetched recommendations.");
+                }
+            })
+            .catch(error => console.error("Error loading recommendations:", error));
+    }
+
+    loadProductRecommendations();
+});
+
+
+</script>
+
 
 {% schema %}
 {
