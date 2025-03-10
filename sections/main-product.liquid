@@ -66,7 +66,7 @@
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-  <div class="page-width">
+  <div class="page-width !px-[28px] md:!px-[60px]">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} {% if section.settings.gallery_layout == 'columns' %} product--custom-gallery {% endif %} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
         {% render 'product-media-gallery', variant_images: variant_images %}
@@ -94,7 +94,7 @@
               {%- when 'title' -%}
                 {% include 'breadcrumbs' %}
                 <div class="product__title" {{ block.shopify_attributes }}>
-                  <h1 class="font-chubbo-medium text-[36px]">{{ product.title | escape }}</h1>
+                  <h1 class="font-chubbo-medium text-[28px] md:text-[36px]">{{ product.title | escape }}</h1>
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
                       {{ product.title | escape }}
@@ -109,7 +109,7 @@
                     show_badges: true,
                     price_class: 'price--large'
                   -%}
-                  <div class="product__tax_ caption rte uppercase text-[#868686] text-[14px]">
+                  <div class="product__tax_ caption rte uppercase text-[#868686] text-[12px] md:text-[14px]">
                     {%- if cart.taxes_included -%}
                       {{ 'products.product.include_taxes' | t }}
                     {%- endif -%}
@@ -183,7 +183,7 @@
                 </p>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
-                  <div class="product__description rte quick-add-hidden font-chillax-medium !font-medium" {{ block.shopify_attributes }}>
+                  <div class="product__description rte quick-add-hidden font-chillax-medium !font-medium text-[14px] md:text-[18px]" {{ block.shopify_attributes }}>
                     {{ product.description }}
                   </div>
                 {%- endif -%}
@@ -206,21 +206,21 @@
                       <div class="summary__title gap-[30px]">
                         {% comment %} {% render 'icon-accordion', icon: block.settings.icon %} {% endcomment %}
                         <img src="{{ block.settings.custom_icon | img_url: 'master' }}" alt="icon">
-                        <h2 class="font-chillax-medium uppercase text-[18px]">
+                        <h2 class="font-chillax-medium uppercase text-[14px] md:text-[18px]">
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
                       </div>
-                      {% render 'icon-caret' %}
-                      <div class="font-chillax-medium text-[18px]">
+                      {% comment %} {% render 'icon-caret' %} {% endcomment %}
+                      <div class="caret--icons font-chillax-medium text-[14px] md:text-[18px]">
                         <span class="icon-caret-plus">
                           +
                         </span>
-                        <span class="icon-caret-minus hidden">
+                        <span class="icon-caret-minus">
                           -
                         </span>
                       </div>
                     </summary>
-                    <div class="accordion__content rte font-chillax-medium text-[16px]" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                    <div class="accordion__content rte font-chillax-medium text-[13px] md:text-[16px]" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                       {{ block.settings.content }}
                       {{ block.settings.page.content }}
                     </div>

@@ -77,22 +77,56 @@
 
 
     /*======= Product Page ========*/
-    .product--custom-gallery .product__media-wrapper ul.product__media-list{
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 36px !important
+
+
+
+
+    @media screen and (max-width: 749px) {
+        .product--custom-gallery .product__media-wrapper ul.product__media-list{
+            gap: 16px !important;
+            
+        }
+
+        .product__media-list .product__media-item{
+            width: calc(100% - 8rem - var(--grid-mobile-horizontal-spacing)) !important
+        }
+
+        .product--custom-gallery .product__media-wrapper ul.product__media-list li{
+            border-radius: 20px;
+            overflow: hidden;
+            
+        }
     }
 
-    .product--custom-gallery .product__media-wrapper ul.product__media-list li{
-        width: 100% !important;
-        max-width: 100% !important;
-        border-radius: 30px;
-        overflow: hidden;
+    @media  (min-width: 750px) {
+        .product--custom-gallery .product__media-wrapper ul.product__media-list{
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 16px !important
+        }
+    
+        .product--custom-gallery .product__media-wrapper ul.product__media-list li{
+            width: 100% !important;
+            max-width: 100% !important;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+    
+        .product--custom-gallery .product__media-wrapper ul.product__media-list li:first-child{
+            grid-column: 1/ span 2;
+        }
     }
 
-    .product--custom-gallery .product__media-wrapper ul.product__media-list li:first-child{
-        grid-column: 1/ span 2;
+    @media  (min-width: 990px) {
+        .product--custom-gallery .product__media-wrapper ul.product__media-list{
+            gap: 36px !important
+        }
+
+        .product--custom-gallery .product__media-wrapper ul.product__media-list li{
+            border-radius: 30px;
+        }
     }
+    
 
 
     .product__description h3{
@@ -106,17 +140,48 @@
     }
 
 
-    .accordion details > summary .icon-caret-minus{
+    .accordion details > summary .caret--icons .icon-caret-minus{
         display: none !important;
     }
 
-    .accordion details[open] > summary .icon-caret-minus{
+    .accordion details[open] > summary .caret--icons .icon-caret-minus{
         display: block !important;
     }
 
-    .accordion details[open] > summary .icon-caret-minus{
+    .accordion details[open] > summary .caret--icons .icon-caret-plus{
         display: none !important;
     }
+
+    
+
+    #judgeme_product_reviews .jdgm-rev-widg .jdgm-rev-widg__header h2.jdgm-rev-widg__title{
+        font-family: 'PlaywriteAUTAS-Regular' !important;
+        font-weight: 400 !important;
+        font-size: 25px !important;
+        line-height: 31.49px !important;
+        letter-spacing: 0% !important;
+        text-align: center !important;
+
+    }
+
+    #judgeme_product_reviews h2{
+        font-family: 'PlaywriteAUTAS-Regular' !important;
+        font-weight: 400 !important;
+        font-size: 25px !important;
+        line-height: 31.49px !important;
+        letter-spacing: 0% !important;
+        text-align: center !important;
+        text-transform: uppercase;
+        margin-bottom: 30px !important;
+    }
+
+    #judgeme_product_reviews a[role="button"]{
+        border-radius: 8px !important
+    }
+
+
+
+  
 
 
 
@@ -188,6 +253,35 @@
         padding: 8px 16px;
         cursor: pointer;
         transition: all 0.3s ease;
+    }
+
+
+
+
+    /* Mobile Styles */
+    @media screen and (max-width: 749px) {
+        .product__description h3{
+            font-size: 14px;
+            line-height: 27px;
+        }
+
+        .product .bcpo-title{
+            font-size: 14px;
+            line-height: 27px;
+        }
+
+
+        #judgeme_product_reviews h2{
+            font-size: 18px !important;
+            line-height: 22.49px !important;
+        }
+
+
+        #judgeme_product_reviews p{
+            font-size: 14px !important;
+        }
+
+
     }
       
 }
