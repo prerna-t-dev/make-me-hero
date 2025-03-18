@@ -1,0 +1,168 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+    "sections": {
+      "main": {
+        "type": "main-page",
+        "disabled": true,
+        "settings": {
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "mmh_about_hero_c94e7b": {
+        "type": "mmh__about-hero",
+        "settings": {
+          "background": "#ffffff",
+          "bg_img_desk": "shopify://shop_images/About_Us_-_bg_desk.png",
+          "bg_img_mob": "shopify://shop_images/About_Us_-_bg_mob.png",
+          "header": "About Us"
+        }
+      },
+      "mmh_about_details_DdryHd": {
+        "type": "mmh__about-details",
+        "blocks": {
+          "usp_RGqwbt": {
+            "type": "usp",
+            "settings": {
+              "title": "Your Child, \nThe Hero",
+              "desc": "<p>Watch as your little explorer's eyes light up when they discover themselves at the heart of every adventure, through our books. <br/><br/>These aren't just stories – they're magical mirrors reflecting your child's unlimited potential, helping them grasp new words and ideas while they're a part of the excitement of in their very own personal quest.</p>",
+              "bg_color": "#72cc34",
+              "graphic": "shopify://shop_images/Vector_1.svg"
+            }
+          },
+          "usp_BmcyQK": {
+            "type": "usp",
+            "settings": {
+              "title": "A Confidence\nBuilding Journey",
+              "desc": "<p>Picture your child as the brave knight, the clever scientist, or the kind-hearted friend. When children see themselves conquering challenges and spreading kindness in their stories, they begin to believe in their own amazing capabilities. \n\nEvery page turn builds their confidence to tackle real-world adventures.</p>",
+              "bg_color": "#ff815d",
+              "graphic": "shopify://shop_images/Vector_2.svg"
+            }
+          },
+          "usp_yRyMPF": {
+            "type": "usp",
+            "settings": {
+              "title": "Inspiring Lifelong\nExplorers",
+              "desc": "<p>By placing your child at the center of these magical tales, we're not just creating readers – we're nurturing adventurers who believe in the power of stories. \n\nEach personalized book plants the seeds for a lifetime love affair with reading, as your child discovers that the most exciting stories are the ones where they play the leading role.</p>",
+              "bg_color": "#4cc1f6",
+              "graphic": "shopify://shop_images/Vector_3.svg"
+            }
+          }
+        },
+        "block_order": [
+          "usp_RGqwbt",
+          "usp_BmcyQK",
+          "usp_yRyMPF"
+        ],
+        "settings": {
+          "background": "",
+          "image": "shopify://shop_images/About_-details_1.png",
+          "header": "Where Stories Come to Life",
+          "subheader": "Embark on an extraordinary journey where your child becomes the star of their own magical adventure. \n\nAt MakeMeHero, we craft portals to worlds where your little one's imagination takes the lead, all through personalised books. Every story is uniquely woven with your child's name, photos, and a heartfelt message, creating a keepsake that will spark wonder for years to come.",
+          "usp_header": "Why Choose Personalised Adventures?"
+        }
+      },
+      "mmh_page_link_WYwfG6": {
+        "type": "mmh__page-link",
+        "settings": {
+          "background": "",
+          "header": "Explore a story made just for now.",
+          "cta": "View Collection",
+          "url": "shopify://collections/all-products-1"
+        }
+      },
+      "mmh_page_faq_dg4twL": {
+        "type": "mmh__page-faq",
+        "blocks": {
+          "faq_YXwMga": {
+            "type": "faq",
+            "settings": {
+              "title": "LOREM IPSUM DOLOR SIT AMET LOREM?",
+              "answer": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.<br/><br/>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</p>"
+            }
+          },
+          "faq_Tk494d": {
+            "type": "faq",
+            "settings": {
+              "title": "LOREM IPSUM DOLOR SIT AMET LOREM?",
+              "answer": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.<br/><br/>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</p>"
+            }
+          },
+          "faq_QW7HxY": {
+            "type": "faq",
+            "settings": {
+              "title": "LOREM IPSUM DOLOR SIT AMET LOREM?",
+              "answer": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.<br/><br/>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</p>"
+            }
+          }
+        },
+        "block_order": [
+          "faq_YXwMga",
+          "faq_Tk494d",
+          "faq_QW7HxY"
+        ],
+        "settings": {
+          "background": "",
+          "header": "FAQs"
+        }
+      },
+      "mmh_about_insta_zjEWDC": {
+        "type": "mmh__about-insta",
+        "blocks": {
+          "instagram_tDWACU": {
+            "type": "instagram",
+            "settings": {
+              "graphic": "shopify://shop_images/insta-post-1_1.png"
+            }
+          },
+          "instagram_Af9hhT": {
+            "type": "instagram",
+            "settings": {
+              "graphic": "shopify://shop_images/insta-post-2_1.png"
+            }
+          },
+          "instagram_tXM6a7": {
+            "type": "instagram",
+            "settings": {
+              "graphic": "shopify://shop_images/insta-post-3_1.png"
+            }
+          },
+          "instagram_34yzpU": {
+            "type": "instagram",
+            "settings": {
+              "graphic": "shopify://shop_images/insta-post-4_1.png"
+            }
+          }
+        },
+        "block_order": [
+          "instagram_tDWACU",
+          "instagram_Af9hhT",
+          "instagram_tXM6a7",
+          "instagram_34yzpU"
+        ],
+        "settings": {
+          "background": "",
+          "header": "Keep us in the loop",
+          "insta_handle": "@MAKE_ME_HERO_BOOKS",
+          "insta_link": "https://www.instagram.com/make_me_hero_books/"
+        }
+      }
+    },
+    "order": [
+      "main",
+      "mmh_about_hero_c94e7b",
+      "mmh_about_details_DdryHd",
+      "mmh_page_link_WYwfG6",
+      "mmh_page_faq_dg4twL",
+      "mmh_about_insta_zjEWDC"
+    ]
+  }
+  

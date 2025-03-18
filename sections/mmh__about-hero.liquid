@@ -1,0 +1,82 @@
+
+<style>
+    
+    #mmh--about-hero .section-wrapper{
+        padding: 40px 30px;
+        background-image: url({{ section.settings.bg_img_mob |  img_url: 'master' }});
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        /* min-height: 84vh */
+    }
+
+    
+
+    @media screen and (min-width: 990px) {
+        #mmh--about-hero .section-wrapper{
+            padding: 76px 60px;
+            background-image: url({{ section.settings.bg_img_desk |  img_url: 'master' }});
+            background-position: center;
+            /* min-height: 70vh */
+            min-height: 230px;
+        }
+    }
+
+
+    /* @media screen and (min-width: 750px) {
+        #mmh--about-hero .section-wrapper{
+            min-height: 100vh
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        #mmh--about-hero .section-wrapper{
+            min-height: 70vh
+        }
+    } */
+
+</style>
+
+<section id="mmh--about-hero" style="background-color: {{ section.settings.background }};">
+    <div class="section-wrapper relative">
+        <h1 class="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 font-chubbo-medium text-[76px]">
+            {{ section.settings.header }}
+        </h1>
+    </div>
+</section>
+
+
+{% schema %}
+    {
+        "name": "About - Hero Banner",
+        "settings": [
+            {
+                "type": "color_background",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "image_picker",
+                "id": "bg_img_desk",
+                "label": "Desktop - Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "bg_img_mob",
+                "label": "Mobile - Image"
+            },
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header",
+                "default": "About Us"
+            }
+        ],
+        "presets": [
+            {
+                "name": "About - Hero Banner"
+            }
+            
+        ]
+    }
+{% endschema %}
