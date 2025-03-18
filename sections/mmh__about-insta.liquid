@@ -1,0 +1,70 @@
+<section id="mmh--about-instagram" style="background-color: {{ section.settings.background }};">
+    <div class="section-wrapper pt-[40px] pb-[88px] text-center">
+        <h2 class="font-chubbo-medium text-[36px] mb-[38px]">
+            {{ section.settings.header }}
+        </h2>
+        <div class="mb-[48px]">
+            <a class="font-playwrite-regular uppercase underline text-[25px]" href="{{ section.settings.insta_link }}" target="_blank">
+                {{ section.settings.insta_handle }}
+            </a>
+        </div>
+
+
+        <!-- Instagram Posts -->
+        <div class="custom--grid grid-cols-2 md:grid-cols-4">
+            {% for block in section.blocks %}
+                <img src="{{ block.settings.graphic |  img_url: 'master' }}" alt="Insta - {{ forloop.index }}">
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+    {
+        "name": "About - Instagram",
+        "settings": [
+            {
+                "type": "color_background",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header",
+                "default": "Keep us in the loop"
+            },
+            {
+                "type": "textarea",
+                "id": "insta_handle",
+                "label": "Instagram Handle"
+            },
+            {
+                "type": "url",
+                "id": "insta_link",
+                "label": "Instagram Link"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "instagram",
+                "type": "instagram",
+                "limit": 4,
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "graphic",
+                        "label": "Graphic"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "About - Instagram"
+            }
+            
+        ]
+    }
+{% endschema %}

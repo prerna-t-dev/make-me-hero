@@ -137,6 +137,10 @@
         letter-spacing: 0%;
         color: #1E953D;
         margin-bottom: 8px;
+    }  
+
+    .product__description p{
+        font-weight: 300 !important;
     }
 
 

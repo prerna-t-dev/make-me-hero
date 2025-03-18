@@ -1,0 +1,114 @@
+<section id="mmh--about-details" style="background-color: {{ section.settings.background }};">
+    <div class="section-wrapper relative py-[80px] px-[60px]">
+        <div class="flex items-center gap-[48px] w-[80%] mx-auto">
+            <div class="w-2/5">
+                <img src="{{ section.settings.image |  img_url: 'master' }}" alt="About Us">
+            </div>
+            <div class="w-3/5">
+                <h2 class="font-chubbo-medium text-[36px] mb-[30px]">
+                    {{ section.settings.header }}
+                </h2>
+                <div class="font-chillax-medium text-[18px]">
+                    {{ section.settings.subheader }}
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-[104px]">
+            <h3 class="font-chubbo-medium text-[48px] mb-[56px] text-center">
+                {{ section.settings.usp_header }}
+            </h3>
+            <div class="custom--grid grid-cols-3 gap-[56px]">
+                {% for block in section.blocks %}
+                    <div class="rounded-[16px] overflow-hidden relative px-[38px] py-[56px]" style="background-color: {{ block.settings.bg_color }};">
+
+                        <div class="absolute top-0 right-0">
+                            <img src="{{ block.settings.graphic |  img_url: 'master' }}" alt="graphic--{{ forloop.index }}">
+                        </div>
+                        <p class="font-chillax-medium text-[18px] mb-[14px]">
+                            #{{ forloop.index }}
+                        </p>
+                        <div class="font-chubbo-medium text-[36px] leading-[40px] mb-[18px]">
+                            {{ block.settings.title }}
+                        </div>
+                        <div class="font-chillax-medium text-[18px]">
+                            {{ block.settings.desc |  newline_to_br }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% schema %}
+    {
+        "name": "About - Details",
+        "settings": [
+            {
+                "type": "color_background",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header",
+                "default": "Where Stories Come to Life"
+            },
+            {
+                "type": "textarea",
+                "id": "subheader",
+                "label": "Sub header"
+            },
+            {
+                "type": "textarea",
+                "id": "usp_header",
+                "label": "USP Header",
+                "default": "Why Choose Personalised Adventures?"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "usp",
+                "type": "usp",
+                "limit": 3,
+                "settings": [
+                    {
+                        "type": "textarea",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "desc",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "color",
+                        "id": "bg_color",
+                        "label": "BG Color"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "graphic",
+                        "label": "Graphic"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "About - Details"
+            }
+            
+        ]
+    }
+{% endschema %}
