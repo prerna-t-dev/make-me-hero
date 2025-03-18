@@ -3,10 +3,10 @@
     {% assign t = template | split: '.' | first %}
     
     <div class="page-width_ w-full">
-      <nav class="breadcrumbs w-full text-[14px] font-medium" role="navigation" aria-label="breadcrumbs">
-        <ol class="flex items-center_ space-x-2">
+      <nav class="breadcrumbs w-full text-[13px] md:text-[14px] font-medium" role="navigation" aria-label="breadcrumbs">
+        <ol class="flex flex-wrap items-center_ space-x-2">
           <li>
-            <a href="/" title="Home" class="text-gray-400 hover:text-gray-600">HOME</a>
+            <a href="/" title="Home" class="text-[#868686] hover:text-gray-600">HOME</a>
           </li>
           <li class="text-black font-medium"> > </li>
   
@@ -19,7 +19,7 @@
           {% when 'product' %}
             {% if collection.url %}
               <li>
-                <a href="{{ collection.url }}" class="text-gray-400 hover:text-gray-600">{{ collection.title | upcase }}</a>
+                <a href="{{ collection.url }}" class="text-[#868686] hover:text-gray-600">{{ collection.title | upcase }}</a>
               </li>
               <li class="text-black font-medium"> > </li>
             {% endif %}
@@ -30,7 +30,7 @@
           {% when 'collection' and collection.handle %}
             {% if current_tags %}
               <li>
-                <a href="{{ collection.url }}" class="text-gray-400 hover:text-gray-600">{{ collection.title | upcase }}</a>
+                <a href="{{ collection.url }}" class="text-[#868686] hover:text-gray-600">{{ collection.title | upcase }}</a>
               </li>
               <li class="text-black font-medium"> > </li>
               <li class="text-black font-medium">
@@ -46,7 +46,7 @@
           {% when 'blog' %}
             {% if current_tags %}
               <li>
-                <a href="{{ blog.url }}" class="text-gray-400 hover:text-gray-600">{{ blog.title | upcase }}</a>
+                <a href="{{ blog.url }}" class="text-[#868686] hover:text-gray-600">{{ blog.title | upcase }}</a>
               </li>
               <li class="text-black font-medium"> > </li>
               <li class="text-black font-medium">
@@ -61,7 +61,7 @@
   
           {% when 'article' %}
             <li>
-              <a href="{{ blog.url }}" class="text-gray-400 hover:text-gray-600">{{ blog.title | upcase }}</a>
+              <a href="{{ blog.url }}" class="text-[#868686] hover:text-gray-600">{{ blog.title | upcase }}</a>
             </li>
             <li class="text-black font-medium"> > </li>
             <li class="text-black font-medium">

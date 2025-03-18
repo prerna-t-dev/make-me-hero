@@ -170,28 +170,34 @@
   // Buy Now - Button
   document.addEventListener("DOMContentLoaded", function () {
     const buyNowButton = document.getElementById("BuyNowButton-{{ section_id }}");
-    const form = buyNowButton.closest("form");
+   
 
-    buyNowButton.addEventListener("click", function () {
-      // Check if form is valid
-      if (!form.checkValidity()) {
-        form.reportValidity(); // Show validation errors
-        console.log(form.reportValidity())
-        return; // Stop execution if validation fails
-      }
 
-      const formData = new FormData(form);
-      formData.append("return_to", "/checkout"); // Redirect to checkout after adding
+    if(buyNowButton){
+      const form = buyNowButton.closest("form");
+      
+      buyNowButton.addEventListener("click", function () {
+        // Check if form is valid
+        if (!form.checkValidity()) {
+          form.reportValidity(); // Show validation errors
+          console.log(form.reportValidity())
+          return; // Stop execution if validation fails
+        }
 
-      fetch('/cart/add.js', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        window.location.href = "/checkout"; // Redirect user to checkout
-      })
-      .catch(error => console.error("Error:", error));
-    });
+        const formData = new FormData(form);
+        formData.append("return_to", "/checkout"); // Redirect to checkout after adding
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          window.location.href = "/checkout"; // Redirect user to checkout
+        })
+        .catch(error => console.error("Error:", error));
+      });
+    }
+    
   });
 </script>
