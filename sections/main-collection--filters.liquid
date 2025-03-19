@@ -1,0 +1,132 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+
+
+<style>
+    .mmh--custom-filter-button{
+        display: none !important;
+    }
+
+    @media screen and (min-width: 750px) {
+        .mmh--custom-filter-button{
+            display: flex !important;
+        }
+    }
+</style>
+<section id="mmh-collection-filters">
+    <div class="section-wrapper px-[28px] md:px-[60px] mb-[40px] md:mb-0">    
+        <h2 class="font-chubbo-medium text-[24px] md:text-[36px] mb-[24px] md:mb-[40px]">
+            {{ section.settings.header }}
+        </h2>
+
+        <div class="flex flex-col md:flex-row md:justify-between gap-[35px] md:gap-[150px]">
+            <!-- Genre Filters -->
+            <ul class="flex flex-wrap gap-[12px] md:gap-[16px] items-center md:w-4/5 md:pr-[40px]">
+                {% for block in section.blocks %}
+                    <li class="rounded-[10px] md:rounded-[14px] border px-[8px] md:px-[12px] py-[4px] md:py-[6px]" style="border-color: {{ block.settings.color }};">
+                        <a href="{{ block.settings.url }}" class="text-[13px] md:text-[18px]">
+                            {{ block.settings.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div id="collection-filter--toggle" class="mmh--custom-filter-button flex gap-[10px] items-center cursor-pointer flex-shrink-0">
+                <img class="w-[22px]" src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/filter-and-sort.svg?v=1742327854" alt="Filter & Sort">
+                <p class="font-chillax-medium text-[14px] md:text-[18px]">FILTER & SORT</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $('#collection-filter--toggle').on('click', function () {
+            console.log('Filter clicked');
+            $('#main-collection-filters').slideToggle();
+        });
+    });
+</script>
+
+
+
+{% schema %}
+    {
+        "name": "Collection - Filters",
+        "settings": [
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header",
+                "default": "Shop by Genre"
+            },
+            {
+                "type": "header",
+                "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+            },
+            {
+                "type": "checkbox",
+                "id": "enable_filtering",
+                "default": true,
+                "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+                "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+            },
+            {
+                "type": "select",
+                "id": "filter_type",
+                "options": [
+                    {
+                    "value": "horizontal",
+                    "label": "t:sections.main-collection-product-grid.settings.filter_type.options__1.label"
+                    },
+                    {
+                    "value": "vertical",
+                    "label": "t:sections.main-collection-product-grid.settings.filter_type.options__2.label"
+                    },
+                    {
+                    "value": "drawer",
+                    "label": "t:sections.main-collection-product-grid.settings.filter_type.options__3.label"
+                    }
+                ],
+                "default": "horizontal",
+                "label": "t:sections.main-collection-product-grid.settings.filter_type.label",
+                "info": "t:sections.main-collection-product-grid.settings.filter_type.info"
+            },
+            {
+                "type": "checkbox",
+                "id": "enable_sorting",
+                "default": true,
+                "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "genre",
+                "type": "genre",
+                "settings": [
+                    {
+                        "type": "color",
+                        "id": "color",
+                        "label": "Color"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "url",
+                        "id": "url",
+                        "label": "URL"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Collection - Filters"
+            }
+        ]
+    }
+    {% endschema %}

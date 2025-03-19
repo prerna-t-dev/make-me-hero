@@ -1,24 +1,24 @@
 <section id="mmh--page-faq" style="background-color: {{ section.settings.background }};">
-    <div class="section-wrapper page-width relative !py-[80px] px-[60px]">
-        <h2 class="font-chubbo-medium text-[36px] mb-[24px]">
+    <div class="section-wrapper page-width relative !py-[20px] md:!py-[80px] !px-[28px] md:!px-[60px]">
+        <h2 class="font-chubbo-medium text-[24px] md:text-[36px] mb-[12px] md:mb-[24px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             {{ section.settings.header }}
         </h2>
 
         <!-- FAQ Accordion -->
         <div>
             {% for block in section.blocks %}
-                <div class="faq__accordion accordion quick-add-hidden py-[40px] {% unless forloop.last %} border-b border-[#B8B8B8]{% endunless %}" {{ block.shopify_attributes }}>
+                <div class="faq__accordion accordion quick-add-hidden py-[24px] md:py-[40px] {% unless forloop.last %} border-b border-[#B8B8B8]{% endunless %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {{ block.shopify_attributes }}>
                   <details id="Details-{{ block.id }}-{{ section.id }}">
                     <summary class="">
-                      <p class="font-chillax-medium text-[18px] mb-[16px]">
+                      <p class="font-chillax-medium text-[14px] md:text-[18px] mb-[8px] md:mb-[16px]">
                         Q{{ forloop.index }}
                       </p>
                       <div class="summary__title gap-[30px] flex justify-between">
                         {% comment %} {% render 'icon-accordion', icon: block.settings.icon %} {% endcomment %}
-                        <h4 class="font-playwrite-regular uppercase text-[14px] md:text-[25px]">
+                        <h4 class="font-playwrite-regular uppercase text-[18px] md:text-[25px]">
                           {{ block.settings.title }}
                         </h4>
-                        <div class="caret--icons font-chubbo-medium text-[14px] md:text-[36px]">
+                        <div class="caret--icons font-chubbo-medium text-[28px] md:text-[36px] flex-shrink-0">
                             <span class="icon-caret-plus text-[#72CC34] leading-none block">
                             +
                             </span>
@@ -30,7 +30,7 @@
                       {% comment %} {% render 'icon-caret' %} {% endcomment %}
                       
                     </summary>
-                    <div class="accordion__content rte font-chillax-medium text-[13px] md:text-[16px] mt-[24px]" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                    <div class="accordion__content rte font-chillax-medium text-[14px] md:text-[16px] mt-[16px] md:mt-[24px]" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                       {{ block.settings.answer }}
                     </div>
                   </details>
