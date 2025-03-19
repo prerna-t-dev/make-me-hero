@@ -1,37 +1,40 @@
 <section id="mmh--about-details" style="background-color: {{ section.settings.background }};">
-    <div class="section-wrapper relative py-[80px] px-[60px]">
-        <div class="flex items-center gap-[48px] w-[80%] mx-auto">
-            <div class="w-2/5">
+    <div class="section-wrapper relative py-[20px] md:py-[80px] px-[28px] md:px-[60px]">
+        <div class="flex flex-col md:flex-row items-center gap-[36px] md:gap-[48px] md:w-[80%] mx-auto">
+            <div class="w-4/5 md:w-2/5 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
                 <img src="{{ section.settings.image |  img_url: 'master' }}" alt="About Us">
             </div>
-            <div class="w-3/5">
-                <h2 class="font-chubbo-medium text-[36px] mb-[30px]">
+            <div class="md:w-3/5">
+                <h2 class="font-chubbo-medium text-[24px] md:text-[36px] mb-[30px] w-fit relative z-[2] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                     {{ section.settings.header }}
+                    <div class="absolute z-[-1] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="width: calc( 100% + 15% );">
+                        <img src="https://cdn.shopify.com/s/files/1/0500/0724/4958/files/bg-highlight-cropped.png?v=1742321537" alt="highlight">
+                    </div>
                 </h2>
-                <div class="font-chillax-medium text-[18px]">
-                    {{ section.settings.subheader }}
+                <div class="font-chillax-medium text-[14px] md:text-[18px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                    {{ section.settings.subheader |  newline_to_br }}
                 </div>
             </div>
         </div>
 
-        <div class="mt-[104px]">
-            <h3 class="font-chubbo-medium text-[48px] mb-[56px] text-center">
+        <div class="mt-[64px] md:mt-[104px]">
+            <h3 class="font-chubbo-medium text-[28px] md:text-[48px] mb-[32px] md:mb-[56px] md:text-center {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                 {{ section.settings.usp_header }}
             </h3>
-            <div class="custom--grid grid-cols-3 gap-[56px]">
+            <div class="custom--grid grid-cols-1 md:grid-cols-3 gap-[32px] md:gap-[56px]">
                 {% for block in section.blocks %}
-                    <div class="rounded-[16px] overflow-hidden relative px-[38px] py-[56px]" style="background-color: {{ block.settings.bg_color }};">
+                    <div class="rounded-[14px] md:rounded-[16px] overflow-hidden relative z-[2] px-[28px] md:px-[38px] py-[42px] md:py-[56px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" style="background-color: {{ block.settings.bg_color }};">
 
-                        <div class="absolute top-0 right-0">
+                        <div class="absolute top-0 right-0 z-[-1] scale-[0.7] md:scale-[1] origin-top-right">
                             <img src="{{ block.settings.graphic |  img_url: 'master' }}" alt="graphic--{{ forloop.index }}">
                         </div>
-                        <p class="font-chillax-medium text-[18px] mb-[14px]">
+                        <p class="font-chillax-medium text-[14px] md:text-[18px] mb-[14px]">
                             #{{ forloop.index }}
                         </p>
-                        <div class="font-chubbo-medium text-[36px] leading-[40px] mb-[18px]">
-                            {{ block.settings.title }}
+                        <div class="font-chubbo-medium text-[24px] md:text-[36px] leading-[28px] md:leading-[40px] mb-[18px]">
+                            {{ block.settings.title |  newline_to_br }}
                         </div>
-                        <div class="font-chillax-medium text-[18px]">
+                        <div class="font-chillax-medium text-[14px] md:text-[18px]">
                             {{ block.settings.desc |  newline_to_br }}
                         </div>
                     </div>

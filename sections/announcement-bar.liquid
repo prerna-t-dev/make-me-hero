@@ -41,7 +41,7 @@
             >
           {%- endif -%}
           <p class="announcement-bar__message h5">
-            <span class="font-chillax-medium text-[14px] md:text-[16px]">{{ section.blocks.first.settings.text | escape }}</span>
+            <span class="font-chillax-medium text-[12px] md:text-[16px]">{{ section.blocks.first.settings.text | escape }}</span>
             {%- if section.blocks.first.settings.link != blank -%}
               {% render 'icon-arrow' %}
             {%- endif -%}
@@ -100,7 +100,7 @@
                       >
                     {%- endif -%}
                     <p class="announcement-bar__message h5">
-                      <span class="font-chillax-medium text-[14px] md:text-[16px]">{{ block.settings.text | escape }}</span>
+                      <span class="font-chillax-medium text-[12px] md:text-[16px]">{{ block.settings.text | escape }}</span>
                       {%- if block.settings.link != blank -%}
                         {% render 'icon-arrow' %}
                       {%- endif -%}

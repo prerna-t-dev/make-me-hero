@@ -1,17 +1,17 @@
 <section id="mmh--about-instagram" style="background-color: {{ section.settings.background }};">
-    <div class="section-wrapper pt-[40px] pb-[88px] text-center">
-        <h2 class="font-chubbo-medium text-[36px] mb-[38px]">
+    <div class="section-wrapper pt-[24px] md:pt-[40px] pb-[72px] md:pb-[88px] text-center">
+        <h2 class="font-chubbo-medium text-[24px] md:text-[36px] mb-[16px] md:mb-[38px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             {{ section.settings.header }}
         </h2>
-        <div class="mb-[48px]">
-            <a class="font-playwrite-regular uppercase underline text-[25px]" href="{{ section.settings.insta_link }}" target="_blank">
+        <div class="mb-[32px] md:mb-[48px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            <a class="font-playwrite-regular uppercase underline text-[17px] md:text-[25px]" href="{{ section.settings.insta_link }}" target="_blank">
                 {{ section.settings.insta_handle }}
             </a>
         </div>
 
 
         <!-- Instagram Posts -->
-        <div class="custom--grid grid-cols-2 md:grid-cols-4">
+        <div class="custom--grid grid-cols-2 md:grid-cols-4 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
             {% for block in section.blocks %}
                 <img src="{{ block.settings.graphic |  img_url: 'master' }}" alt="Insta - {{ forloop.index }}">
             {% endfor %}

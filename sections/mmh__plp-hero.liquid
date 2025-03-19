@@ -1,0 +1,62 @@
+<style>
+    #mmh--plp-hero .plp--img-desk {
+        display: none;
+    }
+
+    @media screen and (min-width: 990px) {
+        #mmh--plp-hero .plp--img-desk {
+            display: block;
+        }
+
+        #mmh--plp-hero .plp--img-mob {
+            display: none;
+        }
+    }
+
+</style>
+
+
+<section id="mmh--plp-hero" style="background-color: {{ section.settings.background }};">
+
+    {% comment %} Desktop Image {% endcomment %}
+    <div class="plp--img-desk">
+        <img class="w-full" src="{{ section.settings.bg_img_desk |  img_url: 'master' }}" alt="{{ collection.title }}">
+    </div>
+
+    {% comment %} Mobile Image {% endcomment %}
+    <div class="plp--img-mob">
+        <img class="w-full" src="{{ section.settings.bg_img_mob |  img_url: 'master' }}" alt="{{ collection.title }}">
+    </div>
+
+</section>
+
+
+
+{% schema %}
+    {
+        "name": "PLP - Hero Banner",
+        "settings": [
+            {
+                "type": "color_background",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "image_picker",
+                "id": "bg_img_desk",
+                "label": "Desktop - Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "bg_img_mob",
+                "label": "Mobile - Image"
+            }
+        ],
+        "presets": [
+            {
+                "name": "PLP - Hero Banner"
+            }
+            
+        ]
+    }
+{% endschema %}

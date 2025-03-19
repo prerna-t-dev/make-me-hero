@@ -1,6 +1,6 @@
 <div class="flex flex-col h-full {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     <a class="flex flex-col h-full" href="{{ product.url }}">
-    <img class="rounded-[16px] mb-[16px] md:mb-[24px]" src="{{ product.featured_image |  img_url: 'master' }}" alt="{{ product.title }}">
+    <img class="rounded-[16px] mb-[16px] md:mb-[24px] aspect-[1/1]" src="{{ product.featured_image |  img_url: 'master' }}" alt="{{ product.title }}">
 
     <div class="prod--card flex flex-col flex-grow justify-between">
         <div>
