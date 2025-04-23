@@ -1,103 +1,214 @@
 <style>
-    
     #mmh--hero-banner .section-wrapper{
         padding: 40px 30px;
-        background-image: url({{ section.settings.bg_img_mob |  img_url: 'master' }});
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: bottom;
-        min-height: 84vh
+        background-position: center;
+        min-height: 84vh;
+        position: relative;
     }
-
-    
 
     @media screen and (min-width: 990px) {
         #mmh--hero-banner .section-wrapper{
             padding: 146px 60px;
-            background-image: url({{ section.settings.bg_img_desk |  img_url: 'master' }});
-            background-position: bottom right;
-            min-height: 70vh
+            background-position: center;
+            min-height: 70vh;
+        }
+
+        #mmh--hero-banner .hero--subheader{
+            max-width: 33.333%;
         }
     }
 
-
     @media screen and (min-width: 750px) {
         #mmh--hero-banner .section-wrapper{
-            min-height: 100vh
+            min-height: 100vh;
         }
     }
 
     @media screen and (min-width: 1024px) {
         #mmh--hero-banner .section-wrapper{
-            min-height: 70vh
+            min-height: 70vh;
+            height: 100%;
         }
     }
 
+    /* Slick slider styles */
+    .hero-slider .slick-dots {
+        bottom: 20px;
+    }
+    
+    .hero-slider .slick-dots li button:before {
+        color: white;
+    }
+    
+    .hero-slider .slick-dots li.slick-active button:before {
+        color: white;
+    }
+
+    .hero-slider .slick-slide {
+        height: 100%;
+    }
+
+    .hero-slider .slick-track {
+        height: 100%;
+    }
+
+    .hero-slider .slick-track {
+        display: flex;
+    }
+    .hero-slider .slick-track .slick-slide {
+        /* display: flex; */
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+    }
 </style>
 
 
 <section id="mmh--hero-banner" style="background-color: {{ section.settings.background }};">
-    <div class="section-wrapper text-white ">
-        <h2 class="font-chubbo-medium text-[24px] leading-[28px] md:text-[36px] md:leading-[40px] text-center md:text-left text-white mb-[12px] md:mb-[16px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-            {{ section.settings.header |  newline_to_br }}
-        </h2>
-        <div class="font-chillax-medium text-[14px] md:text-[18px] text-[#D1CCFF] text-center md:text-left mb-[12px] md:mb-[16px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-            {{ section.settings.subheader |  newline_to_br  }}
-        </div>
-        <a href="{{ section.settings.url }}" class="btn btn-primary w-fit mx-auto md:ml-0 md:mr-auto {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-            {{ section.settings.cta }}
-        </a>
+    <div class="hero-slider">
+        {% for block in section.blocks %}
+            <div class="section-wrapper text-white" 
+                style="background-image: url({{ block.settings.bg_img_mob | img_url: 'master' }});"
+                data-block-id="{{ block.id }}"
+                {{ block.shopify_attributes }}>
+                {% if block.settings.bg_img_desk != blank %}
+                    <style>
+                        @media screen and (min-width: 990px) {
+                            [data-block-id="{{ block.id }}"] {
+                                background-image: url({{ block.settings.bg_img_desk | img_url: 'master' }}) !important;
+                            }
+                        }
+                    </style>
+                {% endif %}
+                <h2 class="font-chubbo-medium text-[24px] leading-[28px] md:text-[36px] md:leading-[40px] text-center md:text-left mb-[12px] md:mb-[16px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                    style="color: {{ block.settings.header_color }};">
+                    {{ block.settings.header | newline_to_br }}
+                </h2>
+                <div class="font-chillax-medium hero--subheader text-[14px] md:text-[18px] text-center md:text-left mb-[12px] md:mb-[16px] md:max-w-[33.333%] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                    style="color: {{ block.settings.subheader_color }};">
+                    {{ block.settings.subheader | newline_to_br }}
+                </div>
+                <a href="{{ block.settings.url }}" class="btn btn-primary w-fit mx-auto md:ml-0 md:mr-auto {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                    {{ block.settings.cta }}
+                </a>
+            </div>
+        {% endfor %}
     </div>
 </section>
+ 
+ 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        $('.hero-slider').slick({
+            dots: false,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: false,
+            touchThreshold: 10,
+            swipe: true,
+            swipeToSlide: true,
+            touchMove: true,
+            responsive: [
+                {
+                    breakpoint: 990,
+                    settings: {
+                        dots: false,
+                        infinite: true,
+                        speed: 500,
+                        fade: true,
+                        cssEase: 'linear',
+                        autoplay: true,
+                        autoplaySpeed: 5000,
+                        arrows: false,
+                        touchThreshold: 10,
+                        swipe: true,
+                        swipeToSlide: true,
+                        touchMove: true
+                    }
+                }
+            ]
+        });
+    });
+</script>
 
 {% schema %}
-    {
-        "name": "Homepage - Hero Banner",
-        "settings": [
-            {
-                "type": "color_background",
-                "id": "background",
-                "label": "Background Color"
-            },
-            {
-                "type": "image_picker",
-                "id": "bg_img_desk",
-                "label": "Desktop - Image"
-            },
-            {
-                "type": "image_picker",
-                "id": "bg_img_mob",
-                "label": "Mobile - Image"
-            },
-            {
-                "type": "textarea",
-                "id": "header",
-                "label": "Header",
-                "default": "Turn your little one <br /> into the hero of their own story."
-            },
-            {
-                "type": "textarea",
-                "id": "subheader",
-                "label": "Subeader",
-                "default": "Personalised books and gifts that spark imagination, build confidence, and create lasting memories."
-            },
-            {
-                "type": "text",
-                "id": "cta",
-                "label": "CTA",
-                "default": "Shop Now"
-            },
-            {
-                "type": "url",
-                "id": "url",
-                "label": "URL"
-            }
-        ],
-        "presets": [
-            {
-                "name": "Homepage - Hero Banner"
-            }
-            
-        ]
-    }
+{
+    "name": "Homepage - Hero Banner",
+    "settings": [
+        {
+            "type": "color_background",
+            "id": "background",
+            "label": "Background Color"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "slide",
+            "name": "Slide",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "bg_img_desk",
+                    "label": "Desktop - Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "bg_img_mob",
+                    "label": "Mobile - Image"
+                },
+                {
+                    "type": "textarea",
+                    "id": "header",
+                    "label": "Header",
+                    "default": "Turn your little one <br /> into the hero of their own story."
+                },
+                {
+                    "type": "color",
+                    "id": "header_color",
+                    "label": "Header Color",
+                    "default": "#FFFFFF"
+                },
+                {
+                    "type": "textarea",
+                    "id": "subheader",
+                    "label": "Subheader",
+                    "default": "Personalised books and gifts that spark imagination, build confidence, and create lasting memories."
+                },
+                {
+                    "type": "color",
+                    "id": "subheader_color",
+                    "label": "Subheader Color",
+                    "default": "#D1CCFF"
+                },
+                {
+                    "type": "text",
+                    "id": "cta",
+                    "label": "CTA",
+                    "default": "Shop Now"
+                },
+                {
+                    "type": "url",
+                    "id": "url",
+                    "label": "URL"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Homepage - Hero Banner",
+            "blocks": [
+                {
+                    "type": "slide"
+                }
+            ]
+        }
+    ]
+}
 {% endschema %}
